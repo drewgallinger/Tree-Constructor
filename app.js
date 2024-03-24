@@ -97,12 +97,12 @@ resetButton.addEventListener("click", function() {
     NodeList = [];
     listeningforNode = false;
     head = null;
-    textOutput.innerHTML = "Click \"Construct Code\" to generate code";
+    textOutput.value = "Click \"Construct Code\" to generate code";
 });
 
 
 constructCodeButton.addEventListener("click", function() {
-    textOutput.innerHTML = createCode(head);
+    textOutput.value = createCode(head);
 });
 
 
