@@ -8,12 +8,11 @@ body, h1, h2, h3, h4, h5, h6 {
 }
 
 body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
     height: 100vh;
     background-color: #0f0f0f;
 }
+
+
 
 .title {
     color: white;
@@ -26,12 +25,29 @@ body {
 
 
 .container {
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    width: 100%;
+    display: flex; 
+    flex-direction: row; 
     height: 100%;
 }
+
+.left {
+    height: 100%;
+    width: 30%; 
+}
+
+.right {
+    height: 100%;
+    width: 70%; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#treeVisualizer {
+    width: 87%;
+    height: 93%;
+}
+
 
 
 .buttons {

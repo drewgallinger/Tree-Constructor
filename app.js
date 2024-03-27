@@ -1,10 +1,18 @@
 const canvas = document.getElementById("treeVisualizer");
-canvas.width =  1100;
-canvas.height = 860;
+
+
+
 canvas.style.backgroundColor = "#19191a" //
 
 const ctx = canvas.getContext("2d");
-const rect = canvas.getBoundingClientRect();
+let rect = canvas.getBoundingClientRect();
+
+
+
+let canvasWidth = parseInt(getComputedStyle(canvas).getPropertyValue("width"));
+let canvasHeight = parseInt(getComputedStyle(canvas).getPropertyValue("height"));
+canvas.width = canvasWidth;
+canvas.height = canvasHeight;
 
 
 const resetButton = document.getElementById("resetButton");
@@ -105,6 +113,20 @@ constructCodeButton.addEventListener("click", function() {
     textOutput.value = createCode(head);
 });
 
+window.addEventListener("resize", function() {
+    canvasWidth = parseInt(getComputedStyle(canvas).getPropertyValue("width"));
+    canvasHeight = parseInt(getComputedStyle(canvas).getPropertyValue("height"));
+    canvas.width = canvasWidth;
+    canvas.height = canvasHeight;
+    rect = canvas.getBoundingClientRect();
+    for (const node of NodeList) {
+        console.log(node);
+        node.drawNode();
+    }
+
+    // temp fix
+    //resetButton.click();
+});
 
 // Helper functions
 function distance(x1, y1, x2, y2) {
@@ -129,6 +151,19 @@ function rstrip(str, chars = " ") {
     }
     return str; 
 }
+
+function pre_order_traversal(node) {
+    //console.log(node.value);
+    ctx.fillStyle = "red";
+    ctx.fill()
+
+    ctx.stroke()
+    for (const subtree of node.subtrees) {
+        pre_order_traversal(subtree);
+    }
+}
+
+
 
 /*
       /\_/\
